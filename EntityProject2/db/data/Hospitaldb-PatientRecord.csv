@@ -1,0 +1,2 @@
+ID,Diagnosis,Prescription,Test_Reports,Doctor_Notes,Visited_Date,Next_Visit_Date,DocID_ID,PatID_ID,AptID_ID
+1,Fever,Nil,Nil,Nil,2026-02-01,2026-02-04,1,1,1
