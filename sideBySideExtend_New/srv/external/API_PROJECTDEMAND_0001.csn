@@ -1,0 +1,1764 @@
+{
+ "meta": {
+  "creator": "cds-dk 9.8.2"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "API_PROJECTDEMAND_0001": {
+   "kind": "service",
+   "@cds.external": true,
+   "@m.IsDefaultEntityContainer": "true",
+   "@sap.message.scope.supported": "true",
+   "@sap.supported.formats": "atom json xlsx"
+  },
+  "API_PROJECTDEMAND_0001.A_ProjDmndExpenseDistr": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Demand Distribution for Expense",
+   "elements": {
+    "ProjDmndExpnDistributionUUID": {
+     "key": true,
+     "type": "cds.UUID",
+     "@sap.label": "Dmnd f. Expn Distr",
+     "@sap.quickinfo": "Global ID for the Distribution of a Demand for Expense",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "ProjectDemandExpenseUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Dmnd f. Expense UUID",
+     "@sap.quickinfo": "Global Identification of a Demand for Expense",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjectDemandUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Demand UUID",
+     "@sap.quickinfo": "Global Identification of a Project Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjDmndReferencedPlanDataUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Project Plan Item",
+     "@sap.quickinfo": "Corresponding Line Item in Project Plan"
+    },
+    "ProjDmndExpnDistrPeriodVal": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Distribution Period",
+     "@sap.quickinfo": "Period to Which a Quantity is Distibuted"
+    },
+    "ProjDmndExpnDistrYearVal": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Year of Distribution",
+     "@sap.quickinfo": "Year of a Distribution Period"
+    },
+    "ProjDmndExpnDistrAmount": {
+     "type": "cds.Decimal",
+     "precision": 17,
+     "scale": 3,
+     "@sap.unit": "ProjDmndExpnDistrAmountCrcy",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Plannend Cost"
+    },
+    "ProjDmndExpnDistrRevenueAmt": {
+     "type": "cds.Decimal",
+     "precision": 17,
+     "scale": 3,
+     "@sap.unit": "ProjDmndExpnDistrRevnAmtCrcy",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Planned Revenue"
+    },
+    "ProjectUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Project UUID",
+     "@sap.quickinfo": "Global ID of the Project to Which a Demand is Related",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ReferencedObjectUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Referenced Object",
+     "@sap.quickinfo": "UUID of the Object to Which a Demand Is Related",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjDmndExpnDistrAmountCrcy": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Currency",
+     "@sap.semantics": "currency-code"
+    },
+    "ProjDmndExpnDistrRevnAmtCrcy": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Currency",
+     "@sap.semantics": "currency-code"
+    },
+    "CreatedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Created By",
+     "@sap.quickinfo": "Created By User"
+    },
+    "CreationDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Created On",
+     "@sap.quickinfo": "Creation Date Time"
+    },
+    "LastChangedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Changed By",
+     "@sap.quickinfo": "Last Changed By User"
+    },
+    "LastChangeDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Changed On",
+     "@sap.quickinfo": "Last Change Date Time"
+    },
+    "to_Root": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemand",
+     "keys": []
+    },
+    "to_ProjectDemandExpense": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemandExpense",
+     "keys": []
+    }
+   }
+  },
+  "API_PROJECTDEMAND_0001.A_ProjDmndResourceAssignment": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Resource Assignment",
+   "elements": {
+    "ProjDmndRsceAssgmtUUID": {
+     "key": true,
+     "type": "cds.UUID",
+     "@sap.label": "Resource Assgmt UUID",
+     "@sap.quickinfo": "Global Identification of a Resource Assignment to a Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "ProjectDemandWorkUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Resource Dmnd UUID",
+     "@sap.quickinfo": "Global Identification of a Resource Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjectDemandUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Demand UUID",
+     "@sap.quickinfo": "Global Identification of a Project Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjDmndRsceAssgmt": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Resource",
+     "@sap.quickinfo": "Personnel Number of a Resource"
+    },
+    "ProjDmndRsceAssgmtQuantity": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "ProjDmndRsceAssgmtQuantityUnit",
+     "@sap.label": "Assigned Quantity",
+     "@sap.quickinfo": "Total Quantity of a Resource Assignment"
+    },
+    "ProjDmndRsceAssgmtQuantityUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Quantity Unit",
+     "@sap.quickinfo": "Unit of Measure for the Assigned Quantity",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "ProjectDemandSupplyIdentifier": {
+     "type": "cds.String",
+     "length": 24,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Resource Supply ID",
+     "@sap.quickinfo": "Resource Supply ID of a Project Demand"
+    },
+    "ProjectDemandSupplyDeliveryOrg": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Delivery Org.",
+     "@sap.quickinfo": "Delivery Organization of the Assigned Resource"
+    },
+    "ProjectDemandSourceOfSupply": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Assignment Source",
+     "@sap.quickinfo": "Source of a Resource Assignment"
+    },
+    "ProjAssgmtLastUpdateSource": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Source of Update",
+     "@sap.quickinfo": "Source of Last Update to a Resource Assignment"
+    },
+    "ProjDmndRsceWorkAssgmtOID": {
+     "type": "cds.String",
+     "length": 100,
+     "@sap.label": "Work Assignment ID",
+     "@sap.quickinfo": "Work Assignment ID (SAP One Domain Model)"
+    },
+    "ProjDmndRsceWrkfrcPersonOID": {
+     "type": "cds.String",
+     "length": 36,
+     "@sap.label": "Workforce Person ID",
+     "@sap.quickinfo": "Workforce Person ID (SAP One Domain Model)"
+    },
+    "ProjDmndRsceAssgmtStartDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Demand Start Date",
+     "@sap.quickinfo": "Start Date of the Demand"
+    },
+    "ProjDmndRsceAssgmtEndDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Demand End Date",
+     "@sap.quickinfo": "End Date of the Demand"
+    },
+    "CreatedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Created By",
+     "@sap.quickinfo": "Created By User"
+    },
+    "CreationDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Created On",
+     "@sap.quickinfo": "Creation Date Time"
+    },
+    "LastChangedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Changed By",
+     "@sap.quickinfo": "Last Changed By User"
+    },
+    "LastChangeDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Changed On",
+     "@sap.quickinfo": "Last Change Date Time"
+    },
+    "to_AssgmtDistribution": {
+     "type": "cds.Composition",
+     "target": "API_PROJECTDEMAND_0001.A_ProjDmndRsceAssgmtDistr",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "to_Root": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemand",
+     "keys": []
+    },
+    "to_Work": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemandResource",
+     "keys": []
+    }
+   }
+  },
+  "API_PROJECTDEMAND_0001.A_ProjDmndRsceAssgmtDistr": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Resource Assignment Distribution",
+   "elements": {
+    "ProjDmndRsceAssgmtDistrUUID": {
+     "key": true,
+     "type": "cds.UUID",
+     "@sap.label": "Assgmt Distr. UUID",
+     "@sap.quickinfo": "Global Identification of a Resource Assignment Distribution",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "ProjDmndRsceAssgmtUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Resource Assgmt UUID",
+     "@sap.quickinfo": "Global Identification of a Resource Assignment to a Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjectDemandUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Demand UUID",
+     "@sap.quickinfo": "Global Identification of a Project Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjDmndRsceAssgmtDistrYearVal": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Year of Distribution",
+     "@sap.quickinfo": "Year of a Distribution Period"
+    },
+    "ProjDmndRsceAssgmtDistrPerdVal": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Distribution Period",
+     "@sap.quickinfo": "Period to Which a Quantity is Distibuted"
+    },
+    "ProjDmndRsceAssgmtDistrQty": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "ProjDmndRsceAssgmtDistrQtyUnit",
+     "@sap.label": "Distributed Quantity",
+     "@sap.quickinfo": "Resource Quantity Assigned for a Distribution Period"
+    },
+    "ProjDmndRsceAssgmtDistrQtyUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Quantity Unit",
+     "@sap.quickinfo": "Unit of Measure for the Distributed Quantity",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "ProjDmndRsceDistrPerdAmt": {
+     "type": "cds.Decimal",
+     "precision": 17,
+     "scale": 3,
+     "@sap.unit": "ProjDmndRsceDistrPerdAmtCur",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Plannend Cost"
+    },
+    "ProjDmndRsceDistrPerdAmtCur": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Currency",
+     "@sap.semantics": "currency-code"
+    },
+    "ProjDmndRsceDistrRevenueAmt": {
+     "type": "cds.Decimal",
+     "precision": 17,
+     "scale": 3,
+     "@sap.unit": "ProjDmndRsceDistrRevenueAmtCur",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Planned Revenue"
+    },
+    "ProjDmndRsceDistrRevenueAmtCur": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Currency",
+     "@sap.semantics": "currency-code"
+    },
+    "ProjDmndRsceAssgmtDistrStrtDte": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Distr. Start Date",
+     "@sap.quickinfo": "Start Date of the Distribution Period"
+    },
+    "ProjDmndRsceAssgmtDistrEndDte": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Distr. End Date",
+     "@sap.quickinfo": "End Date of the Distribution Period"
+    },
+    "ProjDmndRsceDistrIsNotSupplied": {
+     "type": "cds.Boolean",
+     "@sap.label": "Deviation from Req.",
+     "@sap.quickinfo": "Distribution entity indicates deviation from request",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "CreatedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Created By",
+     "@sap.quickinfo": "Created By User"
+    },
+    "CreationDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Created On",
+     "@sap.quickinfo": "Creation Date Time"
+    },
+    "LastChangedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Changed By",
+     "@sap.quickinfo": "Last Changed By User"
+    },
+    "LastChangeDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Changed On",
+     "@sap.quickinfo": "Last Change Date Time"
+    },
+    "to_Assignment": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjDmndResourceAssignment",
+     "keys": []
+    },
+    "to_Root": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemand",
+     "keys": []
+    }
+   }
+  },
+  "API_PROJECTDEMAND_0001.A_ProjDmndRsceReqDistribution": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Resource Request Distribution",
+   "elements": {
+    "ProjDmndRsceReqDistrUUID": {
+     "key": true,
+     "type": "cds.UUID",
+     "@sap.label": "Request Distr. UUID",
+     "@sap.quickinfo": "Global Identification of a Resource Request Distribution",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "ProjDmndResourceRequestUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Rsce Request UUID",
+     "@sap.quickinfo": "Global Identification of a Resource Request",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjectDemandUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Demand UUID",
+     "@sap.quickinfo": "Global Identification of a Project Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjDmndRsceReqDistrYearVal": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Year of Distribution",
+     "@sap.quickinfo": "Year of a Distribution Period"
+    },
+    "ProjDmndRsceReqDistrPerdVal": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Distribution Period",
+     "@sap.quickinfo": "Period to Which a Quantity is Distibuted"
+    },
+    "ProjDmndRsceReqDistrQuantity": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "ProjDmndRsceReqDistrQtyUnit",
+     "@sap.label": "Distributed Quantity",
+     "@sap.quickinfo": "Resource Quantity Requested for a Distribution Period"
+    },
+    "ProjDmndRsceReqDistrQtyUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Quantity Unit",
+     "@sap.quickinfo": "Unit of Measure for the Distributed Quantity",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "ProjDmndRsceReqDistrPerdAmt": {
+     "type": "cds.Decimal",
+     "precision": 17,
+     "scale": 3,
+     "@sap.unit": "ProjDmndRsceReqDistrPerdAmtCur",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Plannend Cost"
+    },
+    "ProjDmndRsceReqDistrPerdAmtCur": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Currency",
+     "@sap.semantics": "currency-code"
+    },
+    "ProjDmndRsceReqDistrRevenueAmt": {
+     "type": "cds.Decimal",
+     "precision": 17,
+     "scale": 3,
+     "@sap.unit": "ProjDmndRsceReqDistrRevnAmtCur",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Planned Revenue"
+    },
+    "ProjDmndRsceReqDistrRevnAmtCur": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Currency",
+     "@sap.semantics": "currency-code"
+    },
+    "ProjDmndReferencedPlanDataUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Project Plan Item",
+     "@sap.quickinfo": "Corresponding Line Item in Project Plan"
+    },
+    "ProjDmndRsceReqDistrStartDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Distr. Start Date",
+     "@sap.quickinfo": "Start Date of the Distribution Period"
+    },
+    "ProjDmndRsceReqDistrEndDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Distr. End Date",
+     "@sap.quickinfo": "End Date of the Distribution Period"
+    },
+    "CreatedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Created By",
+     "@sap.quickinfo": "Created By User"
+    },
+    "CreationDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Created On",
+     "@sap.quickinfo": "Creation Date Time"
+    },
+    "LastChangedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Changed By",
+     "@sap.quickinfo": "Last Changed By User"
+    },
+    "LastChangeDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Changed On",
+     "@sap.quickinfo": "Last Change Date Time"
+    },
+    "to_Root": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemand",
+     "keys": []
+    },
+    "to_ProjDmndRsceReq": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemandResourceRequest",
+     "keys": []
+    }
+   }
+  },
+  "API_PROJECTDEMAND_0001.A_ProjectDemand": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.content.version": "1",
+   "@sap.label": "Project Demand",
+   "elements": {
+    "ProjectDemandUUID": {
+     "key": true,
+     "type": "cds.UUID",
+     "@sap.label": "Demand UUID",
+     "@sap.quickinfo": "Global Identification of a Project Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "ProjectDemand": {
+     "type": "cds.String",
+     "length": 24,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Demand ID",
+     "@sap.quickinfo": "External ID of a Project Demand"
+    },
+    "ProjectDemandName": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "Demand Name",
+     "@sap.quickinfo": "Project Demand Name"
+    },
+    "ProjectDemandDescription": {
+     "type": "cds.String",
+     "length": 1000,
+     "@sap.label": "Description",
+     "@sap.quickinfo": "Description of a Project Demand"
+    },
+    "ProjectDemandCategory": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Demand Category",
+     "@sap.quickinfo": "Project Demand Category"
+    },
+    "ProjectDemandType": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Demand Type",
+     "@sap.quickinfo": "Project Demand Type"
+    },
+    "ReferencedObjectUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Referenced Object",
+     "@sap.quickinfo": "UUID of the Object to Which a Demand Is Related"
+    },
+    "ProjectDemandStatus": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Demand Status",
+     "@sap.quickinfo": "Project Demand Status"
+    },
+    "ProjectDemandDateMaintenance": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.label": "Date Alignment",
+     "@sap.quickinfo": "Alignment of Project Demand Dates with WBS Element Dates"
+    },
+    "ProjectDemandStartDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Demand Start Date",
+     "@sap.quickinfo": "Start Date of the Demand"
+    },
+    "ProjectDemandEndDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Demand End Date",
+     "@sap.quickinfo": "End Date of the Demand"
+    },
+    "ProjectDemandReleasedDateTime": {
+     "type": "cds.DateTime",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@sap.label": "Requested On",
+     "@sap.quickinfo": "Timestamp of Demand Status Change to &quot;Requested&quot;"
+    },
+    "ProjDmndActualSupplyDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Demand Delivery",
+     "@sap.quickinfo": "Delivery Date of the Demand"
+    },
+    "ProjectDemandPerUnitAmount": {
+     "type": "cds.Decimal",
+     "precision": 23,
+     "scale": 3,
+     "@sap.unit": "ProjectDemandRequestCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Price Per Unit",
+     "@sap.quickinfo": "Price per unit"
+    },
+    "ProjectDemandRequestCurrency": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Demand Currency",
+     "@sap.quickinfo": "Project Demand Currency",
+     "@sap.semantics": "currency-code"
+    },
+    "ProjDmndRequestedQuantityUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Quantity Unit",
+     "@sap.quickinfo": "Unit of Measure for the Required Quantity",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "PriceUnitQty": {
+     "type": "cds.Decimal",
+     "precision": 5,
+     "scale": 0,
+     "@sap.label": "Price Unit"
+    },
+    "ProjectDemandRequestNetAmount": {
+     "type": "cds.Decimal",
+     "precision": 23,
+     "scale": 3,
+     "@sap.unit": "ProjDmndReqNetAmountCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Net Value",
+     "@sap.quickinfo": "Estimated Net Value of the Project Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjDmndReqNetAmountCurrency": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Demand Currency",
+     "@sap.quickinfo": "Project Demand Currency",
+     "@sap.semantics": "currency-code"
+    },
+    "ProjectDemandOverallAmount": {
+     "type": "cds.Decimal",
+     "precision": 23,
+     "scale": 3,
+     "@sap.unit": "ProjDmndReqNetAmountCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Overall Cost",
+     "@sap.quickinfo": "Overall Cost of the Project Demand"
+    },
+    "ProjectDemandExpectedAmount": {
+     "type": "cds.Decimal",
+     "precision": 23,
+     "scale": 3,
+     "@sap.unit": "ProjDmndReqNetAmountCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Exptd Value",
+     "@sap.quickinfo": "Expected Value of Overall Limit"
+    },
+    "ProjDmndRequestedQuantity": {
+     "type": "cds.Decimal",
+     "precision": 15,
+     "scale": 3,
+     "@sap.unit": "ProjDmndRequestedQuantityUnit",
+     "@sap.label": "Required Quantity"
+    },
+    "Plant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Plant"
+    },
+    "PurchasingGroup": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purchasing Group"
+    },
+    "PurchasingOrganization": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purch. Organization",
+     "@sap.quickinfo": "Purchasing Organization"
+    },
+    "CreatedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Created By",
+     "@sap.quickinfo": "Name of the Person Who Created the Object",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "CreationDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Created On",
+     "@sap.quickinfo": "Timestamp of Object Creation",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LastChangedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Changed By",
+     "@sap.quickinfo": "Last Changed By User",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "LastChangeDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Changed On",
+     "@sap.quickinfo": "Last Change Date Time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjectDemandLastChangedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Demand Changed By",
+     "@sap.quickinfo": "User Who Last Changed a Demand (Sub-Entities Included)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjDemandLastChangeDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Demand Changed On",
+     "@sap.quickinfo": "Timestamp of Last Change to a Demand (Sub-Entities Included)",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjDmndExternalReferenceUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "External Reference",
+     "@sap.quickinfo": "External UUID related to a Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjectDemandOverallRevenue": {
+     "type": "cds.Decimal",
+     "precision": 23,
+     "scale": 3,
+     "@sap.unit": "ProjDmndOverallRevenueCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.label": "Overall Revenue",
+     "@sap.quickinfo": "Overall Revenue of the Project Demand"
+    },
+    "ProjDmndOverallRevenueCurrency": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Demand Currency",
+     "@sap.quickinfo": "Project Demand Currency",
+     "@sap.semantics": "currency-code"
+    },
+    "ProjDmndDataModelVersion": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Data model Version",
+     "@sap.quickinfo": "Data model Version for Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "to_Expense": {
+     "type": "cds.Composition",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemandExpense",
+     "keys": []
+    },
+    "to_Material": {
+     "type": "cds.Composition",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemandMaterial",
+     "keys": []
+    },
+    "to_Service": {
+     "type": "cds.Composition",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemandService",
+     "keys": []
+    },
+    "to_Work": {
+     "type": "cds.Composition",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemandResource",
+     "keys": []
+    }
+   },
+   "actions": {
+    "ResetDemandStatusToRequested": {
+     "kind": "action",
+     "returns": {
+      "type": "API_PROJECTDEMAND_0001.A_ProjectDemand"
+     }
+    },
+    "SetDemandStatusToClosed": {
+     "kind": "action",
+     "returns": {
+      "type": "API_PROJECTDEMAND_0001.A_ProjectDemand"
+     }
+    },
+    "SetDemandStatusToRequested": {
+     "kind": "action",
+     "returns": {
+      "type": "API_PROJECTDEMAND_0001.A_ProjectDemand"
+     }
+    },
+    "SetDmndStsToRequestOnRelease": {
+     "kind": "action",
+     "returns": {
+      "type": "API_PROJECTDEMAND_0001.A_ProjectDemand"
+     }
+    }
+   }
+  },
+  "API_PROJECTDEMAND_0001.A_ProjectDemandExpense": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Demand for Expense",
+   "elements": {
+    "ProjectDemandExpenseUUID": {
+     "key": true,
+     "type": "cds.UUID",
+     "@sap.label": "Dmnd f. Expense UUID",
+     "@sap.quickinfo": "Global Identification of a Demand for Expense",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "ProjectDemandUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Demand UUID",
+     "@sap.quickinfo": "Global Identification of a Project Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjectDemandExpenseType": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Expense Type"
+    },
+    "ProjectUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Project UUID",
+     "@sap.quickinfo": "Global ID of the Project to Which a Demand is Related",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ReferencedObjectUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Referenced Object",
+     "@sap.quickinfo": "UUID of the Object to Which a Demand Is Related",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjDmndBillingControlCategory": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Billing Category",
+     "@sap.quickinfo": "Billing Control Category"
+    },
+    "CreatedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Created By",
+     "@sap.quickinfo": "Created By User"
+    },
+    "CreationDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Created On",
+     "@sap.quickinfo": "Creation Date Time"
+    },
+    "LastChangedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Changed By",
+     "@sap.quickinfo": "Last Changed By User"
+    },
+    "LastChangeDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Changed On",
+     "@sap.quickinfo": "Last Change Date Time"
+    },
+    "to_Root": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemand",
+     "keys": []
+    },
+    "to_ProjDmndExpenseDistr": {
+     "type": "cds.Composition",
+     "target": "API_PROJECTDEMAND_0001.A_ProjDmndExpenseDistr",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   }
+  },
+  "API_PROJECTDEMAND_0001.A_ProjectDemandMaterial": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Material Demand",
+   "elements": {
+    "ProjectDemandMaterialUUID": {
+     "key": true,
+     "type": "cds.UUID",
+     "@sap.label": "Material Demand UUID",
+     "@sap.quickinfo": "Global Identification for Material Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "ProjectDemandUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Demand UUID",
+     "@sap.quickinfo": "Global Identification of a Project Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "Material": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material Number"
+    },
+    "StorageLocation": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Storage Location"
+    },
+    "MaterialGroup": {
+     "type": "cds.String",
+     "length": 9,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material Group"
+    },
+    "Supplier": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Desired Supplier",
+     "@sap.quickinfo": "Desired Supplier for Project Demand"
+    },
+    "PurchasingInfoRecord": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Demand Info Record",
+     "@sap.quickinfo": "Info Record for Project Demand"
+    },
+    "PurchaseContract": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purchasing Doc Nmbr",
+     "@sap.quickinfo": "Purchasing Document Number"
+    },
+    "PurchaseContractItem": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Contract Item Numbr",
+     "@sap.quickinfo": "Item Number of Purchasing Document"
+    },
+    "MaterialPlannedDeliveryDurn": {
+     "type": "cds.Decimal",
+     "precision": 3,
+     "scale": 0,
+     "@sap.label": "Planned Deliv. Time",
+     "@sap.quickinfo": "Planned Delivery Time in Days"
+    },
+    "PurchaseRequisition": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "PR Number",
+     "@sap.quickinfo": "Purchase Requisition Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "FormattedPurRequisitionItem": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.label": "Requisition/Item ID",
+     "@sap.quickinfo": "Formatted Purchase Requisition Item",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "PurchaseRequisitionItem": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "PR Item Number",
+     "@sap.quickinfo": "Purchase Requisition Item Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "IsPurOrderAllwdForInbDeliv": {
+     "type": "cds.Boolean",
+     "@sap.label": "TRUE",
+     "@sap.quickinfo": "Data element for domain BOOLE: TRUE (='X') and FALSE (=' ')",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OrderedQuantity": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "BaseUnit",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "StillToBeDeliveredQuantity": {
+     "type": "cds.Decimal",
+     "precision": 14,
+     "scale": 3,
+     "@sap.unit": "BaseUnit",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InvoiceReceiptAmount": {
+     "type": "cds.Decimal",
+     "precision": 21,
+     "scale": 3,
+     "@sap.unit": "DocumentCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "RequestedQuantity": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "BaseUnit",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "NetValueAmountInDocCurrency": {
+     "type": "cds.Decimal",
+     "precision": 25,
+     "scale": 3,
+     "@sap.unit": "DocumentCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "DocumentCurrency": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Currency",
+     "@sap.quickinfo": "Currency Key",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.semantics": "currency-code"
+    },
+    "ScheduleLineDeliveryDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "SchedLineStscDeliveryDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "BaseUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Unit of Measure",
+     "@sap.quickinfo": "Purchase requisition unit of measure",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "GoodsReceiptAmount": {
+     "type": "cds.Decimal",
+     "precision": 21,
+     "scale": 3,
+     "@sap.unit": "DocumentCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "to_RootTP": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemand",
+     "keys": []
+    },
+    "to_MaterialSupply": {
+     "type": "cds.Composition",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemandMaterialSupply",
+     "keys": []
+    }
+   }
+  },
+  "API_PROJECTDEMAND_0001.A_ProjectDemandMaterialSupply": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Material Supply Data",
+   "elements": {
+    "ProjDemandMaterialSupplyUUID": {
+     "key": true,
+     "type": "cds.UUID",
+     "@sap.label": "Mtrl Dmnd Sply UUID",
+     "@sap.quickinfo": "UUID for the Material Demand Supply",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "ProjectDemandMaterialUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Material Demand UUID",
+     "@sap.quickinfo": "Global Identification for Material Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "PurchaseRequisition": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "PR Number",
+     "@sap.quickinfo": "Purchase Requisition Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "PurchaseRequisitionItem": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "PR Item Number",
+     "@sap.quickinfo": "Purchase Requisition Item Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjectDemandRequirementPlan": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Requirement Plan",
+     "@sap.quickinfo": "Project Demand Requirement Plan"
+    },
+    "ProjDmndPlndIndepRqmtItem": {
+     "type": "cds.String",
+     "length": 60,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Planned Ind Req Itm",
+     "@sap.quickinfo": "Project Demand Planned Independent Requirement Item"
+    },
+    "ProjectDemandUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Demand UUID",
+     "@sap.quickinfo": "Global Identification of a Project Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjectDemandReservationItem": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Reservation Item",
+     "@sap.quickinfo": "Project Demand Reservation Item"
+    },
+    "ProjectDemandReservation": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Demand Reservation",
+     "@sap.quickinfo": "Project Demand Reservation"
+    },
+    "to_Material": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemandMaterial",
+     "keys": []
+    },
+    "to_Root": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemand",
+     "keys": []
+    }
+   }
+  },
+  "API_PROJECTDEMAND_0001.A_ProjectDemandResource": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Resource Demand",
+   "elements": {
+    "ProjectDemandWorkUUID": {
+     "key": true,
+     "type": "cds.UUID",
+     "@sap.label": "Resource Dmnd UUID",
+     "@sap.quickinfo": "Global Identification of a Resource Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "ProjectDemandUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Demand UUID",
+     "@sap.quickinfo": "Global Identification of a Project Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "CostCenter": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Cost Center"
+    },
+    "ActivityType": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Activity Type"
+    },
+    "ProjDmndAssgmtStatus": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Assignment Status",
+     "@sap.quickinfo": "Assignment Status of a Resource Demand"
+    },
+    "ProjectElementWorkItem": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Work Item ID",
+     "@sap.quickinfo": "ID of the Work Item to Which a Resource Demand is Related"
+    },
+    "ProjDmndBillingControlCategory": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Billing Category",
+     "@sap.quickinfo": "Billing Control Category"
+    },
+    "ProjDmndRequestedDeliveryOrg": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Delivery Org.",
+     "@sap.quickinfo": "Delivery Organization from Which a Resource is Required"
+    },
+    "to_Root": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemand",
+     "keys": []
+    },
+    "to_ResourceAssignment": {
+     "type": "cds.Composition",
+     "target": "API_PROJECTDEMAND_0001.A_ProjDmndResourceAssignment",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "to_ResourceRequest": {
+     "type": "cds.Composition",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemandResourceRequest",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   }
+  },
+  "API_PROJECTDEMAND_0001.A_ProjectDemandResourceRequest": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Resource Request",
+   "elements": {
+    "ProjDmndResourceRequestUUID": {
+     "key": true,
+     "type": "cds.UUID",
+     "@sap.label": "Rsce Request UUID",
+     "@sap.quickinfo": "Global Identification of a Resource Request",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "ProjectDemandWorkUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Resource Dmnd UUID",
+     "@sap.quickinfo": "Global Identification of a Resource Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjectDemandUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Demand UUID",
+     "@sap.quickinfo": "Global Identification of a Project Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjectDemandRequestedResource": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Resource",
+     "@sap.quickinfo": "Personnel Number of a Resource"
+    },
+    "ProjDmndStfngInstructionText": {
+     "type": "cds.String",
+     "length": 1000,
+     "@sap.label": "Staffing Instruction",
+     "@sap.quickinfo": "Staffing Instruction for a Resource Demand"
+    },
+    "ProjDmndRsceReqWorkAssgmtOID": {
+     "type": "cds.String",
+     "length": 100,
+     "@sap.label": "Work Assignment ID",
+     "@sap.quickinfo": "Work Assignment ID (SAP One Domain Model)"
+    },
+    "ProjDmndRsceReqWrkfrcPersonOID": {
+     "type": "cds.String",
+     "length": 36,
+     "@sap.label": "Workforce Person ID",
+     "@sap.quickinfo": "Workforce Person ID (SAP One Domain Model)"
+    },
+    "ProjDmndRsceReqStartDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Demand Start Date",
+     "@sap.quickinfo": "Start Date of the Demand"
+    },
+    "ProjDmndRsceReqEndDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Demand End Date",
+     "@sap.quickinfo": "End Date of the Demand"
+    },
+    "CreatedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Created By",
+     "@sap.quickinfo": "Created By User"
+    },
+    "CreationDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Created On",
+     "@sap.quickinfo": "Creation Date Time"
+    },
+    "LastChangedByUser": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Changed By",
+     "@sap.quickinfo": "Last Changed By User"
+    },
+    "LastChangeDateTime": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7,
+     "@sap.label": "Changed On",
+     "@sap.quickinfo": "Last Change Date Time"
+    },
+    "to_Work": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemandResource",
+     "keys": []
+    },
+    "to_ProjDmndRsceReqDistr": {
+     "type": "cds.Composition",
+     "target": "API_PROJECTDEMAND_0001.A_ProjDmndRsceReqDistribution",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "to_Root": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemand",
+     "keys": []
+    }
+   }
+  },
+  "API_PROJECTDEMAND_0001.A_ProjectDemandService": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Service Demand",
+   "elements": {
+    "ProjectDemandServiceUUID": {
+     "key": true,
+     "type": "cds.UUID",
+     "@sap.label": "Service Dmnd UUID",
+     "@sap.quickinfo": "Global Identification for Service Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "ProjectDemandUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Demand UUID",
+     "@sap.quickinfo": "Global Identification of a Project Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "Material": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material Number"
+    },
+    "MaterialGroup": {
+     "type": "cds.String",
+     "length": 9,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Material Group"
+    },
+    "Supplier": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Desired Supplier",
+     "@sap.quickinfo": "Desired Supplier for Project Demand"
+    },
+    "PurchasingInfoRecord": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Demand Info Record",
+     "@sap.quickinfo": "Info Record for Project Demand"
+    },
+    "PurchaseContract": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Purchasing Doc Nmbr",
+     "@sap.quickinfo": "Purchasing Document Number"
+    },
+    "PurchaseContractItem": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "Contract Item Numbr",
+     "@sap.quickinfo": "Item Number of Purchasing Document"
+    },
+    "MaterialPlannedDeliveryDurn": {
+     "type": "cds.Decimal",
+     "precision": 3,
+     "scale": 0,
+     "@sap.label": "Planned Deliv. Time",
+     "@sap.quickinfo": "Planned Delivery Time in Days"
+    },
+    "SchedLineStscDeliveryDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "IsPurOrderAllwdForInbDeliv": {
+     "type": "cds.Boolean",
+     "@sap.label": "TRUE",
+     "@sap.quickinfo": "Data element for domain BOOLE: TRUE (='X') and FALSE (=' ')",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "BaseUnit": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "Unit of Measure",
+     "@sap.quickinfo": "Purchase requisition unit of measure",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "DocumentCurrency": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Currency",
+     "@sap.quickinfo": "Currency Key",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.semantics": "currency-code"
+    },
+    "GoodsReceiptAmount": {
+     "type": "cds.Decimal",
+     "precision": 21,
+     "scale": 3,
+     "@sap.unit": "DocumentCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "InvoiceReceiptAmount": {
+     "type": "cds.Decimal",
+     "precision": 21,
+     "scale": 3,
+     "@sap.unit": "DocumentCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OpenQuantity": {
+     "type": "cds.Decimal",
+     "precision": 16,
+     "scale": 3,
+     "@sap.unit": "BaseUnit",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "OrderedQuantity": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "BaseUnit",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "PurchaseRequisition": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "PR Number",
+     "@sap.quickinfo": "Purchase Requisition Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "PurchaseRequisitionItem": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "PR Item Number",
+     "@sap.quickinfo": "Purchase Requisition Item Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ScheduleLineDeliveryDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "StillToBeDeliveredQuantity": {
+     "type": "cds.Decimal",
+     "precision": 14,
+     "scale": 3,
+     "@sap.unit": "BaseUnit",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "NetValueAmountInDocCurrency": {
+     "type": "cds.Decimal",
+     "precision": 25,
+     "scale": 3,
+     "@sap.unit": "DocumentCurrency",
+     "@sap.variable.scale": "true",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "to_RootTP": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemand",
+     "keys": []
+    },
+    "to_ServiceSupply": {
+     "type": "cds.Composition",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemandServiceSupply",
+     "keys": []
+    }
+   }
+  },
+  "API_PROJECTDEMAND_0001.A_ProjectDemandServiceSupply": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Service Supply Data",
+   "elements": {
+    "ProjectDemandServiceSupplyUUID": {
+     "key": true,
+     "type": "cds.UUID",
+     "@sap.label": "Srvc Sply UUID",
+     "@sap.quickinfo": "Global Identification for Service Supply",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "notNull": true
+    },
+    "ProjectDemandServiceUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Service Dmnd UUID",
+     "@sap.quickinfo": "Global Identification for Service Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "ProjectDemandUUID": {
+     "type": "cds.UUID",
+     "@sap.label": "Demand UUID",
+     "@sap.quickinfo": "Global Identification of a Project Demand",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "PurchaseRequisition": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "PR Number",
+     "@sap.quickinfo": "Purchase Requisition Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "PurchaseRequisitionItem": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "PR Item Number",
+     "@sap.quickinfo": "Purchase Requisition Item Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false"
+    },
+    "to_Service": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemandService",
+     "keys": []
+    },
+    "to_Root": {
+     "type": "cds.Association",
+     "target": "API_PROJECTDEMAND_0001.A_ProjectDemand",
+     "keys": []
+    }
+   }
+  }
+ }
+}

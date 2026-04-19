@@ -1,0 +1,20 @@
+{
+  "name": "lacation",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "dependencies": {
+    "@sap/cds": "^9.8.4",
+    "axios": "^1.14.0",
+    "cheerio": "^1.2.0",
+    "express": "^4",
+    "node-fetch": "^2.7.0",
+    "sqlite": "^5.1.1"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "private": true
+}

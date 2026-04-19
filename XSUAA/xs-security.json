@@ -1,0 +1,52 @@
+{
+  "xsappname": "security_xsuaa",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.XsuaaViewer",
+      "description": "XsuaaViewer"
+    },
+    {
+      "name": "$XSAPPNAME.XsuaaManager",
+      "description": "XsuaaManager"
+    },
+    {
+      "name": "$XSAPPNAME.XsuaaAdmin",
+      "description": "XsuaaAdmin"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "XsuaaViewer",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.XsuaaViewer"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "XsuaaManager",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.XsuaaManager"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "XsuaaAdmin",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.XsuaaAdmin"
+      ],
+      "attribute-references": []
+    }
+  ],
+  "oauth2-configuration": {
+    "redirect-uris": [
+      "http://localhost:5000/**",
+      "https://*.cfapps.us10.hana.ondemand.com/**",
+      "https://*.applicationstudio.cloud.sap/**"
+    ]
+  }
+}

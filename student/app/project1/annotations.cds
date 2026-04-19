@@ -1,1 +1,0 @@
-using sample.srv.studentapi as service from '../../srv/service';

@@ -1,0 +1,26 @@
+{
+  "name": "TranslateProject",
+  "version": "1.0.0",
+  "dependencies": {
+    "@google-cloud/translate": "^9.3.0",
+    "@sap/cds": "^9",
+    "axios": "^1.14.0"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "TranslationHub": {
+        "kind": "rest",
+        "credentials": {
+          "destination": "TranslationHub"
+        }
+      }
+    }
+  }
+}

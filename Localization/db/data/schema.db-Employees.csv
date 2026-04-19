@@ -1,0 +1,6 @@
+ID,name,email,dept,salary,joining
+E001,John Doe,john.doe@example.com,HR,50000,2022-01-15
+E002,Jane Smith,jane.smith@example.com,Finance,65000,2021-11-20
+E003,Ravi Kumar,ravi.kumar@example.com,IT,70000,2023-03-10
+E004,Anita Sharma,anita.sharma@example.com,Marketing,55000,2022-07-05
+E005,Arjun Patel,arjun.patel@example.com,Sales,60000,2020-09-18

@@ -1,0 +1,8 @@
+ID,locale,name,email,dept
+E001,en,John Doe,john.doe@example.com,HR
+E001,hi,जॉन डो,john.doe@example.com,मानव संसाधन
+E001,ta,ஜான் டோ,john.doe@example.com,மனிதவள
+
+E002,en,Jane Smith,jane.smith@example.com,Finance
+E002,hi,जेन स्मिथ,jane.smith@example.com,वित्त
+E002,ta,ஜேன் ஸ்மித்,jane.smith@example.com,நிதி
