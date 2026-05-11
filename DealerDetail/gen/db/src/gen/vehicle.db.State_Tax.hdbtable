@@ -1,0 +1,7 @@
+COLUMN TABLE vehicle_db_State_Tax (
+  State_ID NVARCHAR(5000) NOT NULL,
+  State NVARCHAR(5000),
+  Tax_Amount INTEGER,
+  State_Code NVARCHAR(5000),
+  PRIMARY KEY(State_ID)
+)

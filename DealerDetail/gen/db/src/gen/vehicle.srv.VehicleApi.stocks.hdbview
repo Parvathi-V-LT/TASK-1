@@ -1,0 +1,5 @@
+VIEW vehicle_srv_VehicleApi_stocks AS SELECT
+  Stock_0.Stock_ID,
+  Stock_0.No_Of_Stock,
+  Stock_0.Vehicle_id_Vehicles_ID
+FROM vehicle_db_Stock AS Stock_0

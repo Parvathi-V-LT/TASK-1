@@ -1,0 +1,14 @@
+VIEW localized_fiori_srv_fiori_api_customers AS SELECT
+  customer_0.ID,
+  customer_0.name,
+  customer_0.status,
+  customer_0.address,
+  customer_0.email,
+  customer_0.contact,
+  customer_0.criticality,
+  customer_0.File,
+  customer_0.filetype,
+  customer_0.fileName,
+  customer_0.imageUrl,
+  customer_0.BookDetails_id
+FROM localized_fiori_db_customer AS customer_0

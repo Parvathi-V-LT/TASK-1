@@ -1,0 +1,5 @@
+COLUMN TABLE vehicle_srv_VehicleApi_cities (
+  ID NVARCHAR(5000) NOT NULL,
+  district NVARCHAR(5000),
+  PRIMARY KEY(ID)
+)

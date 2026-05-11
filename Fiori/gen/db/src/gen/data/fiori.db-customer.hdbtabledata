@@ -1,0 +1,43 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "FIORI_DB_CUSTOMER",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "fiori.db-customer.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "ID",
+          "NAME",
+          "STATUS",
+          "ADDRESS",
+          "EMAIL",
+          "CONTACT",
+          "CRITICALITY",
+          "FILENAME",
+          "IMAGEURL",
+          "BOOKDETAILS_ID"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "ID": "ID",
+        "NAME": "name",
+        "STATUS": "status",
+        "ADDRESS": "address",
+        "EMAIL": "email",
+        "CONTACT": "contact",
+        "CRITICALITY": "criticality",
+        "FILENAME": "FileName",
+        "IMAGEURL": "imageUrl",
+        "BOOKDETAILS_ID": "BookDetails_id"
+      }
+    }
+  ]
+}

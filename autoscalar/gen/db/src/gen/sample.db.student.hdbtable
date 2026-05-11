@@ -1,0 +1,7 @@
+COLUMN TABLE sample_db_student (
+  ID NVARCHAR(5000) NOT NULL,
+  name NVARCHAR(5000),
+  age INTEGER,
+  location NVARCHAR(5000),
+  PRIMARY KEY(ID)
+)

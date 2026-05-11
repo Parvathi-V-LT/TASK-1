@@ -1,0 +1,7 @@
+COLUMN TABLE vehicle_db_Orders (
+  Order_ID NVARCHAR(5000) NOT NULL,
+  Quantity INTEGER,
+  Vehicle_id_Vehicles_ID NVARCHAR(5000),
+  Dealer_ID_Dealer_ID NVARCHAR(5000),
+  PRIMARY KEY(Order_ID)
+)

@@ -1,0 +1,7 @@
+VIEW vehicle_srv_VehicleApi_vehicle_Items AS SELECT
+  Vehicle_Items_0.Vehicle_ID,
+  Vehicle_Items_0.Total_Price,
+  Vehicle_Items_0.Vehicles_brand_id_Vehicles_ID,
+  Vehicle_Items_0.State_Tax_id_State_ID,
+  Vehicle_Items_0.Order_id_Order_ID
+FROM vehicle_db_Vehicle_Items AS Vehicle_Items_0

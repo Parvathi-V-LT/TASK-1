@@ -1,0 +1,13 @@
+COLUMN TABLE vehicle_db_Dealers (
+  Dealer_ID NVARCHAR(5000) NOT NULL,
+  Dealer_Name NVARCHAR(5000),
+  house_no NVARCHAR(5000),
+  street NVARCHAR(5000),
+  City NVARCHAR(5000),
+  State NVARCHAR(5000),
+  country NVARCHAR(5000),
+  pincode NVARCHAR(5000),
+  latitude NVARCHAR(5000),
+  longitude NVARCHAR(5000),
+  PRIMARY KEY(Dealer_ID)
+)

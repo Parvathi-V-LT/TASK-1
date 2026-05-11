@@ -1,0 +1,7 @@
+COLUMN TABLE fiori_db_Book_texts (
+  locale NVARCHAR(14) NOT NULL,
+  id NVARCHAR(5000) NOT NULL,
+  B_name NVARCHAR(5000),
+  price INTEGER,
+  PRIMARY KEY(locale, id)
+)

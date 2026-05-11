@@ -1,0 +1,14 @@
+VIEW localized_fiori_db_customer AS SELECT
+  L_0.ID,
+  coalesce(localized_1.name, L_0.name) AS name,
+  coalesce(localized_1.status, L_0.status) AS status,
+  coalesce(localized_1.address, L_0.address) AS address,
+  L_0.email,
+  L_0.contact,
+  L_0.criticality,
+  L_0.File,
+  L_0.filetype,
+  L_0.fileName,
+  L_0.imageUrl,
+  L_0.BookDetails_id
+FROM (fiori_db_customer AS L_0 LEFT JOIN fiori_db_customer_texts AS localized_1 ON localized_1.ID = L_0.ID AND localized_1.locale = SESSION_CONTEXT('LOCALE'))

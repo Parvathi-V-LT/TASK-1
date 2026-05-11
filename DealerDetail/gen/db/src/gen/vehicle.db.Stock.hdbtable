@@ -1,0 +1,6 @@
+COLUMN TABLE vehicle_db_Stock (
+  Stock_ID NVARCHAR(5000) NOT NULL,
+  No_Of_Stock INTEGER,
+  Vehicle_id_Vehicles_ID NVARCHAR(5000),
+  PRIMARY KEY(Stock_ID)
+)

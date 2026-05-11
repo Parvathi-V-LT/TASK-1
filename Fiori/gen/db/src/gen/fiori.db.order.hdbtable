@@ -1,0 +1,8 @@
+COLUMN TABLE fiori_db_order (
+  ID NVARCHAR(5000) NOT NULL,
+  no_of_quantity INTEGER,
+  "DATE" DATE,
+  Book_id_id NVARCHAR(5000),
+  customer_id_ID NVARCHAR(5000),
+  PRIMARY KEY(ID)
+)

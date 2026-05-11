@@ -1,0 +1,12 @@
+VIEW vehicle_srv_VehicleApi_dealers AS SELECT
+  Dealers_0.Dealer_ID,
+  Dealers_0.Dealer_Name,
+  Dealers_0.house_no,
+  Dealers_0.street,
+  Dealers_0.City,
+  Dealers_0.State,
+  Dealers_0.country,
+  Dealers_0.pincode,
+  Dealers_0.latitude,
+  Dealers_0.longitude
+FROM vehicle_db_Dealers AS Dealers_0

@@ -1,0 +1,6 @@
+VIEW vehicle_srv_VehicleApi_vehicles AS SELECT
+  Vehicles_0.Vehicles_ID,
+  Vehicles_0.ModelName,
+  Vehicles_0.Old_Price,
+  Vehicles_0.New_Price
+FROM vehicle_db_Vehicles AS Vehicles_0

@@ -1,0 +1,6 @@
+VIEW vehicle_srv_VehicleApi_state_taxes AS SELECT
+  State_Tax_0.State_ID,
+  State_Tax_0.State,
+  State_Tax_0.Tax_Amount,
+  State_Tax_0.State_Code
+FROM vehicle_db_State_Tax AS State_Tax_0

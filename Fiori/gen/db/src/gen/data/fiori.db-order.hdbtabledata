@@ -1,0 +1,33 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "FIORI_DB_ORDER",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "fiori.db-order.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "ID",
+          "NO_OF_QUANTITY",
+          "DATE",
+          "BOOK_ID_ID",
+          "CUSTOMER_ID_ID"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "ID": "ID",
+        "NO_OF_QUANTITY": "no_of_quantity",
+        "DATE": "Date",
+        "BOOK_ID_ID": "Book_id_id",
+        "CUSTOMER_ID_ID": "customer_id_ID"
+      }
+    }
+  ]
+}

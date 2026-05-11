@@ -1,0 +1,137 @@
+{
+  "namespace": "stu.db",
+  "definitions": {
+    "stu.db.student": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "name": {
+          "type": "cds.String"
+        },
+        "age": {
+          "type": "cds.Integer"
+        },
+        "address": {
+          "type": "cds.String"
+        },
+        "pincode": {
+          "type": "cds.String"
+        },
+        "latitude": {
+          "type": "cds.String"
+        },
+        "longitude": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "stu.srv.stuapi": {
+      "@source": "srv/service.cds",
+      "kind": "service"
+    },
+    "stu.srv.stuapi.students": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "stu.db.student"
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "name": {
+          "type": "cds.String"
+        },
+        "age": {
+          "type": "cds.Integer"
+        },
+        "address": {
+          "type": "cds.String"
+        },
+        "pincode": {
+          "type": "cds.String"
+        },
+        "latitude": {
+          "type": "cds.String"
+        },
+        "longitude": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "stu.srv.stuapi.getDistrict": {
+      "kind": "function",
+      "params": {
+        "state": {
+          "type": "cds.String"
+        }
+      },
+      "returns": {
+        "items": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "cds.outbox.Messages": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.UUID"
+        },
+        "timestamp": {
+          "type": "cds.Timestamp"
+        },
+        "target": {
+          "type": "cds.String"
+        },
+        "msg": {
+          "type": "cds.LargeString"
+        },
+        "attempts": {
+          "type": "cds.Integer",
+          "default": {
+            "val": 0
+          }
+        },
+        "partition": {
+          "type": "cds.Integer",
+          "default": {
+            "val": 0
+          }
+        },
+        "lastError": {
+          "type": "cds.LargeString"
+        },
+        "lastAttemptTimestamp": {
+          "type": "cds.Timestamp"
+        },
+        "status": {
+          "type": "cds.String",
+          "length": 23
+        },
+        "task": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "appid": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    }
+  },
+  "meta": {
+    "creator": "CDS Compiler v6.8.0",
+    "compilerCsnFlavor": "inferred",
+    "flavor": "inferred"
+  },
+  "$version": "2.0"
+}

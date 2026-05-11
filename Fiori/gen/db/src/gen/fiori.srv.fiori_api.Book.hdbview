@@ -1,0 +1,7 @@
+VIEW fiori_srv_fiori_api_Book AS SELECT
+  Book_0.id,
+  Book_0.B_name,
+  Book_0.price,
+  Book_0.rating,
+  Book_0.Total_Quantity
+FROM fiori_db_Book AS Book_0

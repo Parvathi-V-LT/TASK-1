@@ -1,0 +1,5 @@
+VIEW stud_srv_api_students AS SELECT
+  student_0.ID,
+  student_0.name,
+  student_0.age
+FROM stud_db_student AS student_0

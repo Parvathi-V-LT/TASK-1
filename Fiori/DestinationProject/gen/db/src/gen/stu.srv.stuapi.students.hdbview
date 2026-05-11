@@ -1,0 +1,9 @@
+VIEW stu_srv_stuapi_students AS SELECT
+  student_0.ID,
+  student_0.name,
+  student_0.age,
+  student_0.address,
+  student_0.pincode,
+  student_0.latitude,
+  student_0.longitude
+FROM stu_db_student AS student_0

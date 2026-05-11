@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "FIORI_DB_CUSTOMER_TEXTS",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "fiori.db-customer.texts.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "LOCALE",
+          "ID",
+          "NAME",
+          "ADDRESS"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "LOCALE": "locale",
+        "ID": "ID",
+        "NAME": "name",
+        "ADDRESS": "address"
+      }
+    }
+  ]
+}

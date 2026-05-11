@@ -1,0 +1,7 @@
+VIEW fiori_srv_fiori_api_customers_texts AS SELECT
+  texts_0.locale,
+  texts_0.ID,
+  texts_0.name,
+  texts_0.status,
+  texts_0.address
+FROM fiori_db_customer_texts AS texts_0

@@ -1,0 +1,10 @@
+COLUMN TABLE stu_db_student (
+  ID NVARCHAR(5000) NOT NULL,
+  name NVARCHAR(5000),
+  age INTEGER,
+  address NVARCHAR(5000),
+  pincode NVARCHAR(5000),
+  latitude NVARCHAR(5000),
+  longitude NVARCHAR(5000),
+  PRIMARY KEY(ID)
+)

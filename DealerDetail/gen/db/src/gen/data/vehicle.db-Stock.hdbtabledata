@@ -1,0 +1,29 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "VEHICLE_DB_STOCK",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "vehicle.db-Stock.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "STOCK_ID",
+          "NO_OF_STOCK",
+          "VEHICLE_ID_VEHICLES_ID"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "STOCK_ID": "Stock_ID",
+        "NO_OF_STOCK": "No_Of_Stock",
+        "VEHICLE_ID_VEHICLES_ID": "Vehicle_id_Vehicles_ID"
+      }
+    }
+  ]
+}

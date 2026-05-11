@@ -1,0 +1,7 @@
+COLUMN TABLE vehicle_db_Vehicles (
+  Vehicles_ID NVARCHAR(5000) NOT NULL,
+  ModelName NVARCHAR(5000),
+  Old_Price INTEGER,
+  New_Price INTEGER,
+  PRIMARY KEY(Vehicles_ID)
+)

@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "VEHICLE_DB_VEHICLES",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "vehicle.db-Vehicles.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "VEHICLES_ID",
+          "MODELNAME",
+          "OLD_PRICE",
+          "NEW_PRICE"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "VEHICLES_ID": "Vehicles_ID",
+        "MODELNAME": "ModelName",
+        "OLD_PRICE": "Old_Price",
+        "NEW_PRICE": "New_Price"
+      }
+    }
+  ]
+}

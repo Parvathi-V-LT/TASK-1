@@ -1,0 +1,7 @@
+VIEW localized_fiori_db_Book AS SELECT
+  L_0.id,
+  coalesce(localized_1.B_name, L_0.B_name) AS B_name,
+  coalesce(localized_1.price, L_0.price) AS price,
+  L_0.rating,
+  L_0.Total_Quantity
+FROM (fiori_db_Book AS L_0 LEFT JOIN fiori_db_Book_texts AS localized_1 ON localized_1.id = L_0.id AND localized_1.locale = SESSION_CONTEXT('LOCALE'))

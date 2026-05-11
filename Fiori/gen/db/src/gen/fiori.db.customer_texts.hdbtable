@@ -1,0 +1,8 @@
+COLUMN TABLE fiori_db_customer_texts (
+  locale NVARCHAR(14) NOT NULL,
+  ID NVARCHAR(5000) NOT NULL,
+  name NVARCHAR(5000),
+  status NVARCHAR(5000),
+  address NVARCHAR(5000),
+  PRIMARY KEY(locale, ID)
+)

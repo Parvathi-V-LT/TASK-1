@@ -1,0 +1,15 @@
+{
+    "destinations":[
+        {
+            "name":"Task6Service",
+            "url":"http://localhost:4004",
+            "authentication":"NoAuthentication"
+        },
+        {
+            "name":"DestAPI",
+            "url":"http://localhost:33735",
+            "authentication":"NoAuthentication"
+        }
+        
+    ]
+}

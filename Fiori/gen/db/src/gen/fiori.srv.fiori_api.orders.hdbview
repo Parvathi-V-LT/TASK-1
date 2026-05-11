@@ -1,0 +1,7 @@
+VIEW fiori_srv_fiori_api_orders AS SELECT
+  order_0.ID,
+  order_0.no_of_quantity,
+  order_0."DATE",
+  order_0.Book_id_id,
+  order_0.customer_id_ID
+FROM fiori_db_order AS order_0

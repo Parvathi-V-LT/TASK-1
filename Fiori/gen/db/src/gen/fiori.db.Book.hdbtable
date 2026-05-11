@@ -1,0 +1,8 @@
+COLUMN TABLE fiori_db_Book (
+  id NVARCHAR(5000) NOT NULL,
+  B_name NVARCHAR(5000),
+  price INTEGER,
+  rating DECIMAL,
+  Total_Quantity INTEGER,
+  PRIMARY KEY(id)
+)

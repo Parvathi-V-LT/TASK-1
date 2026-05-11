@@ -1,0 +1,15 @@
+COLUMN TABLE fiori_db_customer (
+  ID NVARCHAR(5000) NOT NULL,
+  name NVARCHAR(5000),
+  status NVARCHAR(5000),
+  address NVARCHAR(5000),
+  email NVARCHAR(5000),
+  contact INTEGER,
+  criticality INTEGER,
+  File BLOB,
+  filetype NVARCHAR(255),
+  fileName NVARCHAR(255),
+  imageUrl NVARCHAR(5000),
+  BookDetails_id NVARCHAR(5000),
+  PRIMARY KEY(ID)
+)

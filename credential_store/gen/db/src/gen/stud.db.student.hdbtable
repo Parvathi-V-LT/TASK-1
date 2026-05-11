@@ -1,0 +1,6 @@
+COLUMN TABLE stud_db_student (
+  ID NVARCHAR(5000) NOT NULL,
+  name NVARCHAR(5000),
+  age INTEGER,
+  PRIMARY KEY(ID)
+)

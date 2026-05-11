@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "VEHICLE_DB_STATE_TAX",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "vehicle.db-State_Tax.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "STATE_ID",
+          "STATE",
+          "TAX_AMOUNT",
+          "STATE_CODE"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "STATE_ID": "State_ID",
+        "STATE": "State",
+        "TAX_AMOUNT": "Tax_Amount",
+        "STATE_CODE": "State_Code"
+      }
+    }
+  ]
+}

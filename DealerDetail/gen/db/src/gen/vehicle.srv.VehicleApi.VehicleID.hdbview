@@ -1,0 +1,3 @@
+VIEW vehicle_srv_VehicleApi_VehicleID AS SELECT
+  vehicles_0.Vehicles_ID
+FROM vehicle_srv_VehicleApi_vehicles AS vehicles_0

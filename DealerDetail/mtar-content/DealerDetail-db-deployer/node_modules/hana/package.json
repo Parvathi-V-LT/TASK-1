@@ -1,0 +1,8 @@
+{
+  "name": "hana",
+  "version": "0.0.2",
+  "description": "hana",
+  "main": "index.js",
+  "author": "zerodark",
+  "license": "MIT"
+}

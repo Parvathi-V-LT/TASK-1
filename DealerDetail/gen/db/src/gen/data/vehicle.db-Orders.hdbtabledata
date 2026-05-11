@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "VEHICLE_DB_ORDERS",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "vehicle.db-Orders.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "ORDER_ID",
+          "QUANTITY",
+          "VEHICLE_ID_VEHICLES_ID",
+          "DEALER_ID_DEALER_ID"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "ORDER_ID": "Order_ID",
+        "QUANTITY": "Quantity",
+        "VEHICLE_ID_VEHICLES_ID": "Vehicle_id_Vehicles_ID",
+        "DEALER_ID_DEALER_ID": "Dealer_ID_Dealer_ID"
+      }
+    }
+  ]
+}

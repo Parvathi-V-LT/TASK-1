@@ -1,0 +1,6 @@
+VIEW vehicle_srv_VehicleApi_orders AS SELECT
+  Orders_0.Order_ID,
+  Orders_0.Quantity,
+  Orders_0.Vehicle_id_Vehicles_ID,
+  Orders_0.Dealer_ID_Dealer_ID
+FROM vehicle_db_Orders AS Orders_0

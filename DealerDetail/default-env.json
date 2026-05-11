@@ -1,0 +1,9 @@
+{
+  "destinations": [
+    {
+      "name": "Task6Service",
+      "url": "http://localhost:4004",  
+      "authentication": "NoAuthentication"
+    }
+  ]
+}

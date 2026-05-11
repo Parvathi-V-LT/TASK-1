@@ -1,0 +1,6 @@
+VIEW fiori_srv_fiori_api_Book_texts AS SELECT
+  texts_0.locale,
+  texts_0.id,
+  texts_0.B_name,
+  texts_0.price
+FROM fiori_db_Book_texts AS texts_0

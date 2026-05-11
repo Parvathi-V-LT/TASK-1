@@ -1,0 +1,33 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "VEHICLE_DB_VEHICLE_ITEMS",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "vehicle.db-Vehicle_Items.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "VEHICLE_ID",
+          "TOTAL_PRICE",
+          "VEHICLES_BRAND_ID_VEHICLES_ID",
+          "STATE_TAX_ID_STATE_ID",
+          "ORDER_ID_ORDER_ID"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "VEHICLE_ID": "Vehicle_ID",
+        "TOTAL_PRICE": "Total_Price",
+        "VEHICLES_BRAND_ID_VEHICLES_ID": "Vehicles_brand_id_Vehicles_ID",
+        "STATE_TAX_ID_STATE_ID": "State_Tax_id_State_ID",
+        "ORDER_ID_ORDER_ID": "Order_id_Order_ID"
+      }
+    }
+  ]
+}

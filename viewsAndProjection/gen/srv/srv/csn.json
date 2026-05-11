@@ -1,0 +1,1043 @@
+{
+  "namespace": "sampleviews",
+  "definitions": {
+    "sampleviews.Customers": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "name": {
+          "type": "cds.String"
+        },
+        "city": {
+          "type": "cds.String"
+        },
+        "orders": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "sampleviews.Orders",
+          "on": [
+            {
+              "ref": [
+                "orders",
+                "customer"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "sampleviews.Orders": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "product": {
+          "type": "cds.String"
+        },
+        "amount": {
+          "type": "cds.Integer"
+        },
+        "customer_ID": {
+          "type": "cds.String"
+        },
+        "customer": {
+          "type": "cds.Association",
+          "target": "sampleviews.Customers",
+          "on": [
+            {
+              "ref": [
+                "customer",
+                "ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "customer_ID"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "ViewsSampleview.OrderWithCustomer": {
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "sampleviews.Orders"
+            ]
+          },
+          "columns": [
+            {
+              "ref": [
+                "ID"
+              ]
+            },
+            {
+              "ref": [
+                "product"
+              ]
+            },
+            {
+              "ref": [
+                "customer",
+                "name"
+              ],
+              "as": "customerName"
+            }
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "product": {
+          "type": "cds.String"
+        },
+        "customerName": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "ViewsSampleview.HighValueOrders": {
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "sampleviews.Orders"
+            ]
+          },
+          "columns": [
+            {
+              "ref": [
+                "ID"
+              ]
+            },
+            {
+              "ref": [
+                "product"
+              ]
+            },
+            {
+              "ref": [
+                "amount"
+              ]
+            }
+          ],
+          "where": [
+            {
+              "ref": [
+                "amount"
+              ]
+            },
+            ">",
+            {
+              "val": 20
+            }
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "product": {
+          "type": "cds.String"
+        },
+        "amount": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "ViewsSampleview.likeop": {
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "sampleviews.Customers"
+            ]
+          },
+          "columns": [
+            {
+              "ref": [
+                "ID"
+              ]
+            },
+            {
+              "ref": [
+                "name"
+              ]
+            },
+            {
+              "ref": [
+                "city"
+              ]
+            }
+          ],
+          "where": [
+            {
+              "ref": [
+                "name"
+              ]
+            },
+            "like",
+            {
+              "val": "S%"
+            }
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "name": {
+          "type": "cds.String"
+        },
+        "city": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "ViewsSampleview.orderjoins": {
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "from": {
+            "join": "inner",
+            "args": [
+              {
+                "ref": [
+                  "sampleviews.Orders"
+                ],
+                "as": "O"
+              },
+              {
+                "ref": [
+                  "sampleviews.Customers"
+                ],
+                "as": "C"
+              }
+            ],
+            "on": [
+              {
+                "ref": [
+                  "O",
+                  "customer_ID"
+                ]
+              },
+              "=",
+              {
+                "ref": [
+                  "C",
+                  "ID"
+                ]
+              }
+            ]
+          },
+          "columns": [
+            {
+              "ref": [
+                "O",
+                "ID"
+              ],
+              "as": "order__ID"
+            },
+            {
+              "ref": [
+                "C",
+                "name"
+              ],
+              "as": "customerName"
+            },
+            {
+              "ref": [
+                "O",
+                "product"
+              ],
+              "as": "Product_name"
+            },
+            {
+              "ref": [
+                "O",
+                "amount"
+              ]
+            }
+          ]
+        }
+      },
+      "elements": {
+        "order__ID": {
+          "type": "cds.String"
+        },
+        "customerName": {
+          "type": "cds.String"
+        },
+        "Product_name": {
+          "type": "cds.String"
+        },
+        "amount": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "ViewsSampleview.leftouterjoin": {
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "from": {
+            "join": "left",
+            "args": [
+              {
+                "ref": [
+                  "sampleviews.Customers"
+                ],
+                "as": "C"
+              },
+              {
+                "ref": [
+                  "sampleviews.Orders"
+                ],
+                "as": "O"
+              }
+            ],
+            "on": [
+              {
+                "ref": [
+                  "O",
+                  "customer_ID"
+                ]
+              },
+              "=",
+              {
+                "ref": [
+                  "C",
+                  "ID"
+                ]
+              }
+            ]
+          },
+          "columns": [
+            {
+              "ref": [
+                "O",
+                "ID"
+              ],
+              "as": "order__ID"
+            },
+            {
+              "ref": [
+                "C",
+                "name"
+              ],
+              "as": "Customer_Name"
+            },
+            {
+              "ref": [
+                "O",
+                "product"
+              ],
+              "as": "Product_Name"
+            },
+            {
+              "ref": [
+                "O",
+                "amount"
+              ]
+            }
+          ]
+        }
+      },
+      "elements": {
+        "order__ID": {
+          "type": "cds.String"
+        },
+        "Customer_Name": {
+          "type": "cds.String"
+        },
+        "Product_Name": {
+          "type": "cds.String"
+        },
+        "amount": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "ViewsSampleview.rightouterjoin": {
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "from": {
+            "join": "right",
+            "args": [
+              {
+                "ref": [
+                  "sampleviews.Orders"
+                ],
+                "as": "O"
+              },
+              {
+                "ref": [
+                  "sampleviews.Customers"
+                ],
+                "as": "C"
+              }
+            ],
+            "on": [
+              {
+                "ref": [
+                  "O",
+                  "customer_ID"
+                ]
+              },
+              "=",
+              {
+                "ref": [
+                  "C",
+                  "ID"
+                ]
+              }
+            ]
+          },
+          "columns": [
+            {
+              "ref": [
+                "O",
+                "ID"
+              ],
+              "as": "Order_ID"
+            },
+            {
+              "ref": [
+                "C",
+                "name"
+              ],
+              "as": "customerName"
+            },
+            {
+              "ref": [
+                "O",
+                "product"
+              ],
+              "as": "Product"
+            }
+          ]
+        }
+      },
+      "elements": {
+        "Order_ID": {
+          "type": "cds.String"
+        },
+        "customerName": {
+          "type": "cds.String"
+        },
+        "Product": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "ViewsSampleview.fullouterjoin": {
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "from": {
+            "join": "full",
+            "args": [
+              {
+                "ref": [
+                  "sampleviews.Customers"
+                ],
+                "as": "C"
+              },
+              {
+                "ref": [
+                  "sampleviews.Orders"
+                ],
+                "as": "O"
+              }
+            ],
+            "on": [
+              {
+                "ref": [
+                  "C",
+                  "ID"
+                ]
+              },
+              "=",
+              {
+                "ref": [
+                  "O",
+                  "customer_ID"
+                ]
+              }
+            ]
+          },
+          "columns": [
+            {
+              "ref": [
+                "O",
+                "ID"
+              ],
+              "as": "Order_ID"
+            },
+            {
+              "ref": [
+                "C",
+                "name"
+              ],
+              "as": "customerName"
+            }
+          ]
+        }
+      },
+      "elements": {
+        "Order_ID": {
+          "type": "cds.String"
+        },
+        "customerName": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "ViewsSampleview.crossjoin": {
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "from": {
+            "join": "cross",
+            "args": [
+              {
+                "ref": [
+                  "sampleviews.Customers"
+                ],
+                "as": "C"
+              },
+              {
+                "ref": [
+                  "sampleviews.Orders"
+                ],
+                "as": "O"
+              }
+            ]
+          },
+          "columns": [
+            {
+              "ref": [
+                "O",
+                "customer_ID"
+              ]
+            },
+            {
+              "ref": [
+                "C",
+                "name"
+              ]
+            },
+            {
+              "ref": [
+                "O",
+                "ID"
+              ]
+            },
+            {
+              "ref": [
+                "O",
+                "product"
+              ]
+            }
+          ]
+        }
+      },
+      "elements": {
+        "customer_ID": {
+          "type": "cds.String"
+        },
+        "name": {
+          "type": "cds.String"
+        },
+        "ID": {
+          "type": "cds.String"
+        },
+        "product": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "ViewsSampleview.aggre": {
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "sampleviews.Orders"
+            ],
+            "as": "O"
+          },
+          "columns": [
+            {
+              "ref": [
+                "O",
+                "customer_ID"
+              ]
+            },
+            {
+              "func": "sum",
+              "args": [
+                {
+                  "ref": [
+                    "O",
+                    "amount"
+                  ]
+                }
+              ],
+              "as": "totalSales"
+            },
+            {
+              "func": "count",
+              "args": [
+                {
+                  "ref": [
+                    "O",
+                    "customer_ID"
+                  ]
+                }
+              ],
+              "as": "OrderCount"
+            }
+          ],
+          "groupBy": [
+            {
+              "ref": [
+                "O",
+                "customer_ID"
+              ]
+            }
+          ]
+        }
+      },
+      "elements": {
+        "customer_ID": {
+          "type": "cds.String"
+        },
+        "totalSales": {
+          "@Core.Computed": true,
+          "$calc": true
+        },
+        "OrderCount": {
+          "@Core.Computed": true,
+          "$calc": {
+            "func": "count",
+            "args": [
+              {
+                "ref": [
+                  "$self",
+                  "customer_ID"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "viewsrv.srv.proandview": {
+      "@source": "srv/service.cds",
+      "kind": "service"
+    },
+    "viewsrv.srv.proandview.orders": {
+      "kind": "entity",
+      "@cds.redirection.target": "db.Orders",
+      "projection": {
+        "from": {
+          "ref": [
+            "sampleviews.Orders"
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "product": {
+          "type": "cds.String"
+        },
+        "amount": {
+          "type": "cds.Integer"
+        },
+        "customer_ID": {
+          "type": "cds.String"
+        },
+        "customer": {
+          "type": "cds.Association",
+          "target": "viewsrv.srv.proandview.customer",
+          "on": [
+            {
+              "ref": [
+                "customer",
+                "ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "customer_ID"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "viewsrv.srv.proandview.customer": {
+      "kind": "entity",
+      "@cds.redirection.target": "db.Customers",
+      "projection": {
+        "from": {
+          "ref": [
+            "sampleviews.Customers"
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "name": {
+          "type": "cds.String"
+        },
+        "city": {
+          "type": "cds.String"
+        },
+        "orders": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "viewsrv.srv.proandview.orders",
+          "on": [
+            {
+              "ref": [
+                "orders",
+                "customer"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "viewsrv.srv.proandview.orderviews": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "ViewsSampleview.OrderWithCustomer"
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "product": {
+          "type": "cds.String"
+        },
+        "customerName": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "viewsrv.srv.proandview.higheValueOrder": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "ViewsSampleview.HighValueOrders"
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "product": {
+          "type": "cds.String"
+        },
+        "amount": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "viewsrv.srv.proandview.likeoperator": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "ViewsSampleview.likeop"
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "name": {
+          "type": "cds.String"
+        },
+        "city": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "viewsrv.srv.proandview.orderjoins": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "ViewsSampleview.orderjoins"
+          ]
+        }
+      },
+      "elements": {
+        "order__ID": {
+          "type": "cds.String"
+        },
+        "customerName": {
+          "type": "cds.String"
+        },
+        "Product_name": {
+          "type": "cds.String"
+        },
+        "amount": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "viewsrv.srv.proandview.leftouterjoins": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "ViewsSampleview.leftouterjoin"
+          ]
+        }
+      },
+      "elements": {
+        "order__ID": {
+          "type": "cds.String"
+        },
+        "Customer_Name": {
+          "type": "cds.String"
+        },
+        "Product_Name": {
+          "type": "cds.String"
+        },
+        "amount": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "viewsrv.srv.proandview.rightouterjoins": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "ViewsSampleview.rightouterjoin"
+          ]
+        }
+      },
+      "elements": {
+        "Order_ID": {
+          "type": "cds.String"
+        },
+        "customerName": {
+          "type": "cds.String"
+        },
+        "Product": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "viewsrv.srv.proandview.crossjoins": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "ViewsSampleview.crossjoin"
+          ]
+        }
+      },
+      "elements": {
+        "customer_ID": {
+          "type": "cds.String"
+        },
+        "name": {
+          "type": "cds.String"
+        },
+        "ID": {
+          "type": "cds.String"
+        },
+        "product": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "viewsrv.srv.proandview.aggre": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "ViewsSampleview.aggre"
+          ]
+        }
+      },
+      "elements": {
+        "customer_ID": {
+          "type": "cds.String"
+        },
+        "totalSales": {
+          "@Core.Computed": true
+        },
+        "OrderCount": {
+          "@Core.Computed": true,
+          "$calc": {
+            "func": "count",
+            "args": [
+              {
+                "ref": [
+                  "$self",
+                  "customer_ID"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "viewsrv.srv.proandview.customerOrderView": {
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "viewsrv.srv.proandview.orders"
+            ]
+          },
+          "columns": [
+            {
+              "ref": [
+                "ID"
+              ]
+            },
+            {
+              "ref": [
+                "product"
+              ]
+            },
+            {
+              "ref": [
+                "customer",
+                "name"
+              ]
+            }
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "product": {
+          "type": "cds.String"
+        },
+        "name": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "cds.outbox.Messages": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.UUID"
+        },
+        "timestamp": {
+          "type": "cds.Timestamp"
+        },
+        "target": {
+          "type": "cds.String"
+        },
+        "msg": {
+          "type": "cds.LargeString"
+        },
+        "attempts": {
+          "type": "cds.Integer",
+          "default": {
+            "val": 0
+          }
+        },
+        "partition": {
+          "type": "cds.Integer",
+          "default": {
+            "val": 0
+          }
+        },
+        "lastError": {
+          "type": "cds.LargeString"
+        },
+        "lastAttemptTimestamp": {
+          "type": "cds.Timestamp"
+        },
+        "status": {
+          "type": "cds.String",
+          "length": 23
+        },
+        "task": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "appid": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    }
+  },
+  "meta": {
+    "creator": "CDS Compiler v6.8.0",
+    "compilerCsnFlavor": "inferred",
+    "flavor": "inferred"
+  },
+  "$version": "2.0"
+}
